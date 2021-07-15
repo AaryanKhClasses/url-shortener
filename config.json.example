@@ -1,0 +1,5 @@
+{
+    "port": "5000",
+    "mongoURI": "Your MongoDB URL Here",
+    "baseURL": "http://localhost:5000"
+}
