@@ -1,17 +1,17 @@
 // Import Stuff
 const express = require('express')
 const config = require('./config.json')
-const connectDB = require('./connectDB')
+const mongo = require('./src/mongo')
 
 // Get the server.
 const app = express()
 app.use(express.json())
 
-connectDB() // Connect to the database.
+mongo() // Connect to the database.
 
 // Define the routes.
-app.use('/', require('./routes/index'))
-app.use('/api/url', require('./routes/url'))
+app.use('/', require('./src/routes/index'))
+app.use('/api/url', require('./src/routes/url'))
 
 const port = config.port // Gets the "port" value from the "config.json"
 
