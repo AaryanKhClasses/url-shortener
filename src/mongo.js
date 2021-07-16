@@ -1,11 +1,13 @@
 // Importing Stuff
 const mongoose = require('mongoose')
-const { mongoURI } = require('./config.json')
+const { mongoURI } = require('../config.json')
 
-const connectDB = async() => { // Declaring the function to connect to the mongoDB Database.
+const mongo = async() => { // Declaring the function to connect to the mongoDB Database.
     try {
         await mongoose.connect(mongoURI, { // Connecting to the Database.
-            useNewUrlParser: true, // Database config.
+             // Database config.
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         })
 
         console.log('MongoDB Connected!') // Logs that the Database is connected.
@@ -15,4 +17,4 @@ const connectDB = async() => { // Declaring the function to connect to the mongo
     }
 }
 
-module.exports = connectDB // Exports the function.
+module.exports = mongo // Exports the function.

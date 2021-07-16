@@ -4,15 +4,13 @@ const config = require('./config.json')
 const mongo = require('./src/mongo')
 
 // Get the server.
-const app = express()
-app.use(express.json())
+const app = express() // Express app
+const router = require('./src/router') // Router
+app.set('view engine', 'ejs') // Set the view engine to ejs
+app.use(express.urlencoded({ extended: false })) // Set the body parser to parse urlencoded bodies
+app.use(router) // Add the router to the app
 
 mongo() // Connect to the database.
 
-// Define the routes.
-app.use('/', require('./src/routes/index'))
-app.use('/api/url', require('./src/routes/url'))
-
 const port = config.port // Gets the "port" value from the "config.json"
-
 app.listen(port, () => console.log(`Server running on port ${port}`)) // Starts the server and logs that the server has been started on port 5000
