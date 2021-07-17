@@ -1,7 +1,9 @@
-const mongoose = require('mongoose') // Imports mongoose
+// Import Stuff
+const mongoose = require('mongoose')
+const shortId = require('shortid')
 
 const urlSchema = new mongoose.Schema({ // Creates a schema
-    urlCode: String, 
+    urlCode: { type: String, default: shortId.generate() },
     longURL: String,
     shortURL: String,
     date: { type: String, default: Date.now() },

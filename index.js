@@ -2,10 +2,10 @@
 const express = require('express')
 const config = require('./config.json')
 const mongo = require('./src/mongo')
+const router = require('./src/router')
 
 // Get the server.
 const app = express() // Express app
-const router = require('./src/router') // Router
 app.set('view engine', 'ejs') // Set the view engine to ejs
 app.use(express.urlencoded({ extended: false })) // Set the body parser to parse urlencoded bodies
 app.use(router) // Add the router to the app

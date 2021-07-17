@@ -7,6 +7,10 @@
     <title>URL Shortener</title>
 </head>
 <body>
-    <h1>WIP</h1>
+    <form action="/shorten" method="POST">
+        <label for="longURL">URL</label>
+        <input required placeholder="Long URL Here" typr="url" id="longURL">
+        <button type="submit">Shorten</button>
+    </form>
 </body>
 </html>
